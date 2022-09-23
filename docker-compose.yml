@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: db_mysql
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=mydev
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=12345678
+      - MYSQL_USER=dbadmin
+      - MYSQL_PASSWORD=12345678
+    volumes:
+      # 啟動初期數據綁定位置
+      - ./mysql/initdb:/docker-entrypoint-initdb.d
+      
+      # 數據庫數據存儲位置指定
+      - ./mysql/datadir:/var/lib/mysql
+      
+      # MySQL設置文件
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: web_phpmyadmin
+    ports:
+      - "80:80"
+    environment:
+    # - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+    # - PMA_USER=root
+    # - PMA_PASSWORD=12345678
+    links:
+      - mysql
+    restart: always
