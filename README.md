@@ -10,5 +10,7 @@ Manage Users
 ![image](https://github.com/StevenYangForGit/Java_MyWebApp/blob/main/%E7%B3%BB%E7%B5%B1%E7%95%AB%E9%9D%A2.png)
 
 新增
+![image](https://github.com/StevenYangForGit/Java_MyWebApp/blob/main/%E6%96%B0%E5%A2%9E%E7%95%AB%E9%9D%A2.png)
+
 修改
 排序
